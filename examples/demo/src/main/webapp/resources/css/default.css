@@ -1,0 +1,42 @@
+/* 
+    Document   : default
+    Created on : Jun 8, 2010, 5:52:37 PM
+    Author     : celestrini
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body {
+    color: #2d5384;
+    font-size : 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+}
+ul.menu {
+    list-style: none;
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    height: 20px;
+}
+ul.menu li {
+    float: left;
+    padding-right: 10px;
+}
+.logPanel {
+    background-color: #FFFFFF;
+    height: 300px;
+}
+.overflow {
+    height: 210px;
+    padding: 10px;
+    overflow: auto;
+    background-color: #F6F7F9;
+}
+.navigation {
+    width: 300px;
+    float: left;
+    margin-right: 15px;
+}

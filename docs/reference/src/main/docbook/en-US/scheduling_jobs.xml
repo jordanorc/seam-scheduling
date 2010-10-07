@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+   "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" []>
+<chapter id="scheduling_jobs">
+    <title>Scheduling jobs</title>
+    <para>
+        To schedule jobs, you just need annotate events as following:
+    </para>
+
+    <programlisting role="Java"><![CDATA[public void onSchedule(@Observes @Scheduled(value = "0/1 * * * * ?") Event e) {
+    // Do something
+}]]></programlisting>
+
+    <warning>
+        <para>
+            To use @Schedule annotation, Weld Component must be Application Scoped.
+        </para>
+
+        <programlisting role="Java"><![CDATA[@Named
+@ApplicationScoped
+public class IndexMB {
+    public void onSchedule(@Observes @Scheduled(value = "0/1 * * * * ?") Event e) {
+        // Do something
+    }
+}]]></programlisting>
+    </warning>
+
+    <section id="scheduling_jobs.scheduled_annotation">
+        <title>The @Scheduled Annotation</title>
+        <para>
+            The @Scheduled annotation is the annotation responsable to shedule jobs. It has four atributes:
+            <itemizedlist>
+                <listitem>
+                    <para>jobName</para>
+                </listitem>
+                <listitem>
+                    <para>jobName</para>
+                </listitem>
+                <listitem>
+                    <para>jobGroup</para>
+                </listitem>
+                <listitem>
+                    <para>autoStart</para>
+                </listitem>
+                <listitem>
+                    <para>value</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+
+    <section id="scheduling_jobs.scheduled_attributes">
+        <title>The @Scheduled Attributes</title>
+
+        <section id="scheduling_jobs.scheduled_attributes.jobName">
+            <title>jobName</title>
+            <para>
+            Indicates the job name. It's not required and important
+            when you want to manage jobs after start them.
+            If you don't set it, the job name will be automatically generated.
+            </para>
+        </section>
+
+        <section id="scheduling_jobs.scheduled_attributes.jobGroup">
+            <title>jobGroup</title>
+            <para>
+            This attribute specifies the job group. It's not required and
+            important when you want to manage jobs after start them.
+            With Scheduler Manager API you can pause / resume and remove jobs from a group, for example.
+            </para>
+        </section>
+
+        <section id="scheduling_jobs.scheduled_attributes.autoStart">
+            <title>autoStart</title>
+            <para>
+            This attribute indicates if a job will be started automatically.
+            If you don't want start it automatically,
+            you will be able to start it later with Scheduler Manager API. The default value is "true".
+            </para>
+        </section>
+
+        <section id="scheduling_jobs.scheduled_attributes.cronExpression">
+            <title>cronExpression</title>
+
+            <para>
+            The value option set a cron expression.
+            A cron expression is a string comprised of 6 or 7 fields separated by white space.
+            Fields can contain any of the allowed values, along with various combinations of the allowed special characters for that field.
+            The fields are as follows:
+            </para>
+
+            <table frame="all">
+                <title>Cron Expression</title>
+                <tgroup cols="4" align="left" colsep="1" rowsep="1">
+                    <thead>
+                        <row>
+                            <entry>Field Name</entry>
+                            <entry>Mandatory</entry>
+                            <entry>Allowed Values</entry>
+                            <entry>Allowed Special Characters</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>Seconds</entry>
+                            <entry>YES</entry>
+                            <entry>0-59</entry>
+                            <entry>, - * /</entry>
+                        </row>
+                        <row>
+                            <entry>Minutes</entry>
+                            <entry>YES</entry>
+                            <entry>0-59</entry>
+                            <entry>, - * /</entry>
+                        </row>
+                        <row>
+                            <entry>Hours</entry>
+                            <entry>YES</entry>
+                            <entry>0-23</entry>
+                            <entry>, - * /</entry>
+                        </row>
+                        <row>
+                            <entry>Day of month</entry>
+                            <entry>YES</entry>
+                            <entry>1-31</entry>
+                            <entry>, - * ? / L W</entry>
+                        </row>
+                        <row>
+                            <entry>Month</entry>
+                            <entry>YES</entry>
+                            <entry>1-12 or JAN-DEC</entry>
+                            <entry>, - * /</entry>
+                        </row>
+                        <row>
+                            <entry>Day of week</entry>
+                            <entry>YES</entry>
+                            <entry>1-7 or SUN-SAT</entry>
+                            <entry>, - * ? / L #</entry>
+                        </row>
+                        <row>
+                            <entry>Year</entry>
+                            <entry>NO</entry>
+                            <entry>empty, 1970-2099</entry>
+                            <entry>, - * /</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <para>
+            So cron expressions can be as simple as this: * * * * ? * or more complex,
+            like this: 0 0/5 14,18,3-39,52 ? JAN,MAR,SEP MON-FRI 2002-2010
+            </para>
+        </section>
+    </section>
+</chapter>

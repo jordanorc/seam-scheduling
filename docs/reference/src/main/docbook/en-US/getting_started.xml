@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+   "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" []>
+<chapter id="getting_started">
+    <title>Getting Started with Seam Scheduling</title>
+    <para>
+        This document describes all necessary actions and configurations
+        that should be done for use Seam Scheduling in a web appplication.
+        The description relies on a simple JSF application creation process from downloading
+        the libraries to running the application in a browser.
+        The process of application creation described here is common and does not depend on used IDE.
+    </para>
+
+    <section id="getting_started.downloading">
+        <title>Downloading Seam Scheduling</title>
+
+        <para>
+            The latest release of CDI Schedule is available for download in Downloads area [@TODO: insert link to download].
+            Binary files (uploaded there in *.bin.zip or *.bin.tar.gz archives) contains compiled, ready-to-use version of Seam Scheduling.
+        </para>
+        <para>
+            To start with Seam Scheduling in computer file system, create a new folder with name "Seam Scheduling", 
+            download and unzip the archive with binaries there.
+            If you are using Maven, see Chapter 1. Installation [@TODO: insert link to chapter] to see how to use Seam Scheduling using Maven.
+        </para>
+        <para>
+            For those who want to download and compile the Seam Scheduling by themselfs
+            there is an article at JBoss community that describes the Seam Scheduling
+            repository's structure overview and some aspects of working with it. [@TODO: insert link]
+        </para>
+    </section>
+
+    <section id="getting_started.demo">
+        <title>Simple JSF/Seam Application with Scheduling</title>
+
+        <para>
+            "Seam Scheduling Demo" — the simple application — is a simple application created to demonstrate Seam Scheduling features.
+        </para>
+        <para>
+            If you are starting with Seam / Weld you can read Weld documentation here: http://docs.jboss.org/weld/reference/1.0.1-Final/en-US/html/
+        </para>
+    </section>
+</chapter>

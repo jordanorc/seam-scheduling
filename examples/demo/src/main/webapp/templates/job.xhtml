@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <rich:panel styleClass="logPanel">
+        <h:form rendered="#{showToolbar != false}">
+            <ul class="menu">
+                <li>
+                    <h:graphicImage value="#{resource['images/pause.png']}" alt="pause" />
+                    <h:commandLink action="#{indexMB.pause}" value="Pause">
+                        <f:setPropertyActionListener value="#{jobName}" target="#{indexMB.jobName}" />
+                        <f:ajax event="action" execute="@this" render="@none" />
+                    </h:commandLink>
+                </li>
+                <li>
+                    <h:graphicImage value="#{resource['images/play.png']}" alt="resume" />
+                    <h:commandLink action="#{indexMB.resume}" value="Resume">
+                        <f:setPropertyActionListener value="#{jobName}" target="#{indexMB.jobName}" />
+                        <f:ajax event="action" execute="@this" render="@none" />
+                    </h:commandLink>
+                </li>
+                <li>
+                    <h:graphicImage value="#{resource['images/delete.png']}" alt="delete" />
+                    <h:commandLink action="#{indexMB.delete}" value="Delete">
+                        <f:ajax event="action" execute="@this" render="@none" />
+                    </h:commandLink>
+                </li>
+                <li>
+                    <h:graphicImage value="#{resource['images/clear.png']}" alt="clear" />
+                    <h:link onclick="seam.scheduling.clearLog('#{jobName}'); return false;" value="Clear log">
+                    </h:link>
+                </li>
+            </ul>
+        </h:form>
+        <f:facet name="header">
+            <ui:insert name="title" />
+        </f:facet>
+        <div class="overflow" id="#{jobName}">
+        </div>
+    </rich:panel>
+</ui:composition>
+
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+   "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" []>
+<chapter id="custom_qualifiers">
+    <title>Custom Qualifiers</title>
+    <para>
+        Seam Scheduling provides a way to create a custom qualifier like so
+    </para>
+
+    <programlisting role="Java"><![CDATA[@Scheduled("after.hours")
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Target( { ElementType.PARAMETER, ElementType.METHOD, ElementType.FIELD, ElementType.TYPE })
+public @interface AfterHours {}]]></programlisting>
+
+    <para>
+        Seam Scheduling can observe the event in a typesafe manner,
+        in as many places as we want throughout our codebase with all the benefits of code-completion and none of the refactoring headaches:
+    </para>
+
+    <programlisting role="Java"><![CDATA[public void onTypesafeSchedule(@Observes @AfterHours Event e) {
+    // do something after hours
+}]]></programlisting>
+</chapter>

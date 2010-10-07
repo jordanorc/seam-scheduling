@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>CDI Schedule Docs</title>
+        <style type="text/css">
+            html {}
+            body {
+                color: #2d5384;
+                background-color: #F6F7F9;
+                font-size : 12px;
+                font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h1>CDI Schedule Documentation</h1>
+        <ul>
+            <li>Getting started</li>
+        </ul>
+
+        <h1>Chapter 1. Installation</h1>
+
+        <p>Most features of CDI Schedule are installed automatically by including the cdi-schedule.jar and quatz libs in the web application library folder.</p>
+        <p>If you are using Maven as your build tool, you can add the following dependency to your pom.xml file:</p>
+
+        <pre>
+        <dependency>
+            <groupId>org.jboss.seam.faces</groupId>
+            <artifactId>seam-faces</artifactId>
+            <version>${seam-faces-version}</version>
+        </dependency>
+        </pre>
+
+        <h1>Chapter 2. Scheduling jobs</h1>
+
+        <p>CDI Schedule provides a complete API to schedule and manage jobs. To do that, you just need annotate the method you can schedule as following:</p>
+
+        <pre>
+            @Schedule(jobName = "testJob", value = "0/1 * * * * ?", autoStart = true)
+            public void onSchedule() {
+                
+            }
+        </pre>
+
+        <p>The @Schedule annotation has four atributes: </p>
+
+        <ul>
+            <li>jobName</li>
+            <li>jobGroup</li>
+            <li>autoStart</li>
+            <li>value</li>
+        </ul>
+
+    </h:body>
+</html>
+
+
+

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Seam Scheduling Demo</title>
+        <h:outputScript name="jquery.js" />
+        <h:outputStylesheet name="css/default.css" />
+        <h:outputScript name="javascript/scheduling.js" />
+    </h:head>
+    <h:body>
+        <h1>Seam Scheduling Demo</h1>
+
+        <div class="navigation">
+            <rich:panel style="width:300px">
+                <f:facet name="header">
+                    <h:outputText value="Navigation" />
+                </f:facet>  
+                <ul>
+                    <li><h:link outcome="/basic.xhtml">Basic Features</h:link></li>
+                    <li>Using Groups</li>
+                    <li>Custom Annotations</li>
+                    <li>Custom Tasks</li>
+                </ul>
+            </rich:panel>
+        </div>
+
+        <div>
+            <ui:insert name="content" />
+        </div>
+    </h:body>
+</html>
+
+
+

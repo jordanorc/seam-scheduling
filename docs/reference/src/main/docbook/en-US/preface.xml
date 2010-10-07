@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE preface PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" []>
+<preface>
+    <title>Introduction</title>
+    <para>
+       The goal of Seam  Scheduling is to provide a way to run scheduled events in Seam 3.
+       It makes use of CDI’s typesafe event model for tying business logic to schedules.
+       That is, you define your schedules using the provided qualifiers,
+       which you apply to observer methods containing the business logic that you wish to be run at those times.
+    </para>
+
+<!--
+vim:et:ts=3:sw=3:tw=120
+-->
+</preface>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+   "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" []>
+<chapter id="managing_jobs">
+    <title>Managing Jobs</title>
+    <para>
+        Seam Scheduling provides an API to control jobs.
+        We can use dependency injection into Weld Components to obtain the Scheduler Manager:
+    </para>
+    
+    <programlisting role="Java"><![CDATA[@Named
+@ApplicationScoped
+public class IndexMB {
+    @Inject
+    private SchedulerManager schedulerManager;
+}]]></programlisting>
+
+    <para>
+        With Scheduler Manager we can start, pause, resume and delete jobs.
+        We also can control jobs by groups. To see all methods that SchedulerManager interface provides, see this link.
+    </para>
+
+    <section id="managing_jobs.starting_jobs">
+        <title>Starting jobs</title>
+        <programlisting role="Java"><![CDATA[@Named
+@ApplicationScoped
+public class IndexMB {
+    @Inject
+    private SchedulerManager schedulerManager;
+
+    public void start() {
+        schedulerManager.startJob("testJob");
+    }
+}]]></programlisting>
+    </section>
+
+    <section id="managing_jobs.pausing_jobs">
+        <title>Pausing jobs</title>
+        <programlisting role="Java"><![CDATA[@Named
+@ApplicationScoped
+public class IndexMB {
+    @Inject
+    private SchedulerManager schedulerManager;
+
+    public void pause() {
+        schedulerManager.pauseJob("testJob");
+    }
+}]]></programlisting>
+    </section>
+
+    <section id="managing_jobs.resuming_jobs">
+        <title>Resuming jobs</title>
+        <programlisting role="Java"><![CDATA[@Named
+@ApplicationScoped
+public class IndexMB {
+    @Inject
+    private SchedulerManager schedulerManager;
+
+    public void pause() {
+        schedulerManager.resumeJob("testJob");
+    }
+}
+}]]></programlisting>
+    </section>
+
+    <section id="managing_jobs.deleting_jobs">
+        <title>Deleting jobs</title>
+        <programlisting role="Java"><![CDATA[@Named
+@ApplicationScoped
+public class IndexMB {
+    @Inject
+    private SchedulerManager schedulerManager;
+
+    public void delete() {
+        schedulerManager.deleteJob("testJob");
+    }
+}}]]></programlisting>
+    </section>
+</chapter>
